@@ -105,7 +105,8 @@
                     "already_known":$("#AlreadyKnownInfo").val(),
                     "added_by_report":$("#AddedInfo").val(),
                      "implications":$("#Implications").val(),
-                    "tags":tagbuilder};
+                    "tags":tagbuilder,
+                    "url":$("#ArticleURL").val()};
       var JSONArticle = {"title":title,
                         "articles":[article]};
       $("#JSONBlurb").val(JSON.stringify(JSONArticle));
