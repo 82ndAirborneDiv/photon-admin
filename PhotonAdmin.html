@@ -42,9 +42,10 @@
   $("#parseArticle").click(function(event){
       event.preventDefault();
       var article_url=$("#ArticleURL").val();
+      article_url = article_url.substring(0, article_url.indexOf('?'));
       if (article_url.length > 0){
           var workaroundurl = 'http://whateverorigin.org/get?url=' + encodeURIComponent(article_url) + '&callback=?'
-          console.log(yql);
+          console.log(article_url);
           $.getJSON(workaroundurl,
                   function(data){
                       if(data.contents){
