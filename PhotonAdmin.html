@@ -100,7 +100,8 @@
                     "tags":tagbuilder,
                     "url":$("#ArticleURL").val()};
       var JSONArticle = {"title":title,
-                        "articles":[article]};
+                        "articles":[article],
+                        "ver":1};
       $("#JSONBlurb").val(JSON.stringify(JSONArticle));
       $("#JSONBlurb").select();
       $("#serialize_message").show();
