@@ -18,7 +18,7 @@
 
     <script>
         $(function(){
-            var sampleTags = ['c++', 'java', 'php', 'coldfusion', 'javascript', 'asp', 'ruby',                  'python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
+            var sampleTags = ['c++', 'java', 'php', 'coldfusion', 'javascript', 'asp', 'ruby','python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
 
        
             $('#ArticleKeywords').tagit({
@@ -76,8 +76,9 @@
     
   $("#serializeButton").click(function(){
       //var JSONArticle = "poo";
-      var title = $("#IssueDate").val() + " / Vol. " + $("#IssueVolume").val()
+      var issue = $("#IssueDate").val() + " / Vol. " + $("#IssueVolume").val()
         + " / No. "+  $("#IssueNumber").val();
+
       var tagstring = $("#ArticleKeywords").val();
       var tagarray = [];
       if (tagstring.length >0)
@@ -93,15 +94,21 @@
       }
       }
       var tags = JSON.stringify(tagbuilder)
-     var article = {"title":$("#IssueTitle").val(),
+     var JSONArticle = {"issue":issue,
+                 "issue-date":$("#IssueDate").val(),
+                   "issue-vol":$("#IssueVolume").val(),
+                    "issue-no":$("#IssueNumber").val(),
+                    "title":$("#IssueTitle").val(),
                     "already_known":$("#AlreadyKnownInfo").val(),
                     "added_by_report":$("#AddedInfo").val(),
                      "implications":$("#Implications").val(),
                     "tags":tagbuilder,
-                    "url":$("#ArticleURL").val()};
-      var JSONArticle = {"title":title,
-                        "articles":[article],
-                        "ver":1};
+                    "url":$("#ArticleURL").val(),
+                    "content-ver":"1",
+                    "ver":"1"};
+      //var JSONArticle = {"issue":issue,
+      //                  "articles":[article],
+      //                  "ver":1};
       $("#JSONBlurb").val(JSON.stringify(JSONArticle));
       $("#JSONBlurb").select();
       $("#serialize_message").show();
