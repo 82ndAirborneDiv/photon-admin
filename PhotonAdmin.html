@@ -40,7 +40,8 @@
        
 
   $("#parseArticle").click(function(event){
-      event.preventDefault();
+      event.preventDefault(); 
+      $('#ArticleKeywords').tagit('removeAll');
       var article_url=$("#ArticleURL").val();
       article_url = article_url.substring(0, article_url.indexOf('?'));
       if (article_url.length > 0){
