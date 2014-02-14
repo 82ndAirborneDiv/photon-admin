@@ -23,9 +23,16 @@ and open the template in the editor.
     $(document).ready(function(){    
 $.getJSON("http://localhost:3000/articles",
         function(data){
-            console.log(data);
-          
-            $("#articlediv").val(data[0]);
+            console.log(data);         
+//            $("#articlediv").val(data[0]);
+            //data downloaded so we call parseJSON function 
+            //and pass downloaded data
+            //var json = $.parseJSON(data);
+            var article = data[0];
+            console.log(article);
+            //now json variable contains data in json format
+            //let's display a few items
+            $('#results').html('Title: ' + article.title + '<br />Added by Report: ' + article[added_by_report]);
         });
         });
         
@@ -33,6 +40,7 @@ $.getJSON("http://localhost:3000/articles",
     </script>
     </head>
     <body>
-        <div id="articlediv">Articles Go Here</div>
+        <!--<div id="articlediv">Articles Go Here</div>-->
+        <span id="results"></span>
     </body>
 </html>
