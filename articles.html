@@ -32,7 +32,21 @@ $.getJSON("http://localhost:3000/articles",
             console.log(article);
             //now json variable contains data in json format
             //let's display a few items
-            $('#results').html('Title: ' + article.title + '<br />Added by Report: ' + article[added_by_report]);
+            $('#results').html('Title: ' + article.title + '<br />Added by Report: ' + article.added_by_report);
+        });
+        var credentials = {"username":"bob","password":"secret"}
+        $.getJSON("http://localhost:3000/token",credentials,
+        function(data){
+            console.log(data);         
+//            $("#articlediv").val(data[0]);
+            //data downloaded so we call parseJSON function 
+            //and pass downloaded data
+            //var json = $.parseJSON(data);
+            var token = data[0];
+            console.log(token);
+            //now json variable contains data in json format
+            //let's display a few items
+            $('#token').html('token: ' + token);
         });
         });
         
@@ -42,5 +56,6 @@ $.getJSON("http://localhost:3000/articles",
     <body>
         <!--<div id="articlediv">Articles Go Here</div>-->
         <span id="results"></span>
+        <span id="token"></span>
     </body>
 </html>
