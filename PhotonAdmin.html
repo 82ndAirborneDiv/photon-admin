@@ -38,6 +38,7 @@
         
         $(document).ready(function(){
        
+       $("#serialize_button").hide();
 
   $("#parseArticle").click(function(event){
       event.preventDefault(); 
@@ -63,6 +64,7 @@
                          $("#AlreadyKnownInfo").val($html.find(".fb-answer:eq(0)").text());
                          $("#AddedInfo").val($html.find(".fb-answer:eq(1)").text());
                           $("#Implications").val($html.find(".fb-answer:eq(2)").text());
+                          showButtonIfFilled();
                       } else {
                           var errormsg = "Error: could not load the page.";
                           //output to firebug's console  
@@ -74,7 +76,44 @@
           );
       }
   }   );
+
+function showButtonIfFilled()
+{
+  if( $("#AlreadyKnownInfo").val().length >0 &&
+    $("#AddedInfo").val().length >0 &&
+    $("#Implications").val().length >0)
+  {
+    //alert("trying to show serialize button");
+    $("#serialize_button").show();
+  }
+  else
+    $("#serialize_button").hide();
+
+}
+  $("#AlreadyKnownInfo").on('input',function(){
+    showButtonIfFilled();
+  });
+    $("#AddedInfo").on('input',function(){
+    showButtonIfFilled();
+  });
+      $("#Implications").on('input',function(){
+    showButtonIfFilled();
+  });
     
+
+
+  $("#clearArticle").click(function(event){
+      $("#ArticleURL").val("");
+      $('#ArticleKeywords').tagit('removeAll');
+       $("#IssueTitle").val("");
+       $("#IssueDate").val("");
+       $("#IssueVolume").val("");
+       $("#IssueNumber").val("");
+      $("#AlreadyKnownInfo").val("");
+      $("#AddedInfo").val("");
+       $("#Implications").val("");
+  }   );
+
   $("#serializeButton").click(function(){
       //var JSONArticle = "poo";
       var issue = $("#IssueDate").val() + " / Vol. " + $("#IssueVolume").val()
@@ -113,6 +152,7 @@
       $("#JSONBlurb").val(JSON.stringify(JSONArticle));
       $("#JSONBlurb").select();
       $("#serialize_message").show();
+      
     //  };
   });
 });
@@ -129,7 +169,8 @@
 <br>
     <form action="">
 <p><label for="ArticleURL" class="top_fields">Article URL:</label> <input type="text" name="ArticleURL" id="ArticleURL" size="60"/>
-    <button type="button" id="parseArticle">Auto Fetch Article</button></p>
+    <button type="button" id="parseArticle">Auto Fetch Article</button>
+    <button type="button" id="clearArticle">Clear Article</button></p>
 <p><label for="IssueDate" class="top_fields">Issue Date:</label> <input type="text" name="FirstName" value="" id="IssueDate" size="12"/></p>
 <p><label for="IssueVolume" class="top_fields">Volume Number:</label> <input  type="text" name="LastName" value="" id="IssueVolume" size="12"/></p>
 <p><label for="IssueNumber" class="top_fields">Issue Number:</label> <input type="text" name="IssueNumber" value="" id="IssueNumber" size="12"/></p>
@@ -151,7 +192,8 @@
               
             <p><div class="label_above"><label for "AddedInfo" class="bluebox_topics"><img src="images/orange_bubble.png" style="padding-right:.4em;" alt="What is added by this report?" title="What is added by this report?" />What is <strong>added</strong> by this report?</label><br/> <textarea type="text" id="AddedInfo" rows="4" cols="70"></textarea></div></p>
             
-             <p><div class="label_above"><label for "Implications" class="bluebox_topics"><img src="images/green_bubble.png" style="padding-right:.4em;" alt="What are the implications for public health practice?" title="What are the implications for public health practice?"/>What are the <strong>implications for public health practice</strong>?</label><br/> <textarea type="text" id="Implications" rows="4" cols="70" ></textarea></div></p>
+             <p><div class="label_above"><label for "Implications" class="bluebox_topics"><img src="images/green_bubble.png" style="padding-right:.4em;" alt="What are the implications for public health practice?" title="What are the implications for public health practice?"/>What are the <strong>implications for public health practice</strong>?</label><br/> <textarea type="text" 
+              id="Implications" rows="4" cols="70" ></textarea></div></p>
         </div>
 
 </form>
