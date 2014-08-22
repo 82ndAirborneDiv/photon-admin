@@ -46,7 +46,7 @@
       var article_url=$("#ArticleURL").val();
       article_url = article_url.substring(0, article_url.indexOf('?'));
       if (article_url.length > 0){
-          var workaroundurl = 'http://anyorigin.com/dev/get?url=' + encodeURIComponent(article_url) + '&callback=?'
+          var workaroundurl = 'http://whateverorigin.org/get?url=' + encodeURIComponent(article_url) + '&callback=?'
          // console.log(article_url);
           $.getJSON(workaroundurl,
                   function(data){
