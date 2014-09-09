@@ -28,7 +28,7 @@
            
             
         });
-
+        
 
         $(function() {
             $( "#IssueDate" ).datepicker();
@@ -47,6 +47,7 @@
       article_url = article_url.substring(0, article_url.indexOf('?'));
       if (article_url.length > 0){
           var workaroundurl = 'http://whateverorigin.org/get?url=' + encodeURIComponent(article_url) + '&callback=?'
+          //workaroundurl = 'http://edemo.phiresearchlab.org/whatorigin/get?url=' + encodeURIComponent(article_url) + '&callback=?'
          // console.log(article_url);
           $.getJSON(workaroundurl,
                   function(data){
@@ -206,13 +207,10 @@ function showButtonIfFilled()
 <!--        <button name="AddKeyword" id="btnFoo">Add</button>-->
         </div></p></div>
 
-
-
-
-
 <!--<div id="subscription"><a href="http://toolsadmin.cdc.gov">CDC Subscription Service</a></div>-->
 
 <div style="clear:both;"></div>
+
 
 <br/>
 </body>
