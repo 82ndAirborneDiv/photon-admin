@@ -45,9 +45,14 @@
       $('#ArticleKeywords').tagit('removeAll');
       var article_url=$("#ArticleURL").val();
       article_url = article_url.substring(0, article_url.indexOf('?'));
-      if (article_url.length > 0){
+       var originSource = $('input[name=whatOrigin]:checked').val()
+
+      if (article_url.length > 0){        
           var workaroundurl = 'http://whateverorigin.org/get?url=' + encodeURIComponent(article_url) + '&callback=?'
-          //workaroundurl = 'http://edemo.phiresearchlab.org/whatorigin/get?url=' + encodeURIComponent(article_url) + '&callback=?'
+          if (originSource == 'edemo')
+          {
+            workaroundurl = 'http://edemo.phiresearchlab.org/whatorigin/get?url=' + encodeURIComponent(article_url) + '&callback=?'
+          }
          // console.log(article_url);
           $.getJSON(workaroundurl,
                   function(data){
@@ -172,6 +177,7 @@ function showButtonIfFilled()
 <p><label for="ArticleURL" class="top_fields">Article URL:</label> <input type="text" name="ArticleURL" id="ArticleURL" size="60"/>
     <button type="button" id="parseArticle">Auto Fetch Article</button>
     <button type="button" id="clearArticle">Clear Article</button></p>
+
 <p><label for="IssueDate" class="top_fields">Issue Date:</label> <input type="text" name="FirstName" value="" id="IssueDate" size="12"/></p>
 <p><label for="IssueVolume" class="top_fields">Volume Number:</label> <input  type="text" name="LastName" value="" id="IssueVolume" size="12"/></p>
 <p><label for="IssueNumber" class="top_fields">Issue Number:</label> <input type="text" name="IssueNumber" value="" id="IssueNumber" size="12"/></p>
@@ -213,6 +219,7 @@ function showButtonIfFilled()
 
 
 <br/>
+<br><br>Article Parser: <input type="radio" name="whatOrigin" value="whatorigin" checked/>Whatever Origin <input type="radio" name="whatOrigin" value="edemo"/>EDemo.
 </body>
 </html>
 
