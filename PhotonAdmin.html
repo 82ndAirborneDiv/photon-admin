@@ -67,9 +67,15 @@
                           $("#IssueDate").val($html.filter("meta[name=\"Date\"]").attr("content"));
                           $("#IssueVolume").val($html.filter("meta[name=\"Volume\"]").attr("content"));
                           $("#IssueNumber").val($html.filter("meta[name=\"Issue\"]").attr("content"));
-                         $("#AlreadyKnownInfo").val($html.find(".fb-answer:eq(0)").text());
-                         $("#AddedInfo").val($html.find(".fb-answer:eq(1)").text());
-                          $("#Implications").val($html.find(".fb-answer:eq(2)").text());
+                         $("#AlreadyKnownInfo").val($html.find(".Summary-Box-Text:eq(0)").text());
+                         $("#AddedInfo").val($html.find(".Summary-Box-Text:eq(1)").text());
+                          $("#Implications").val($html.find(".Summary-Box-Text:eq(2)").text());
+                          if($("#AlreadyKnownInfo").val()== "")
+                          {
+                            $("#AlreadyKnownInfo").val($html.find(".fb-answer:eq(0)").text());
+                            $("#AddedInfo").val($html.find(".fb-answer:eq(1)").text());
+                            $("#Implications").val($html.find(".fb-answer:eq(2)").text());
+                          }
                           showButtonIfFilled();
                       } else {
                           var errormsg = "Error: could not load the page.";
