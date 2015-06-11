@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
     <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
     <link href="css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
-
+   
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-
+    <script type='text/javascript' src='js/JavaScriptSpellCheck/include.js' ></script>
     <!-- The real deal -->
     <script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
 
@@ -27,11 +27,11 @@
                 availableTags: sampleTags
             });
 
-           
+          
             
         });
         
-
+      $Spelling.SpellCheckAsYouType('#JSONBlurb');
         $(function() {
             $( "#IssueDate" ).datepicker();
              $( "#IssueDate" ).datepicker("option", "dateFormat", "yy-mm-dd");
