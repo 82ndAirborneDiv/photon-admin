@@ -17,6 +17,8 @@
     <script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
 
     <script>
+      
+  
         $(function(){
             var sampleTags = ['c++', 'java', 'php', 'coldfusion', 'javascript', 'asp', 'ruby','python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
 
@@ -126,6 +128,8 @@ function showButtonIfFilled()
        $("#Implications").val("");
   }   );
 
+
+
   $("#serializeButton").click(function(){
       //var JSONArticle = "poo";
       var issue = $("#IssueDate").val() + " / Vol. " + $("#IssueVolume").val()
@@ -140,7 +144,8 @@ function showButtonIfFilled()
       var counter = 0;
       while (counter < tagarray.length)
       {
-          var tag = {"tag":tagarray[counter]};
+         var capTagString = tagarray[counter].toString().substring(0,1).toUpperCase() + tagarray[counter].toString().substring(1);
+          var tag = {"tag":capTagString};
           tagbuilder[counter] = tag;
           counter++;
       }
@@ -168,6 +173,8 @@ function showButtonIfFilled()
     //  };
   });
 });
+
+
     </script>
 
 </head>
@@ -192,7 +199,7 @@ function showButtonIfFilled()
         <div>
         <p><label for="ArticleKeywords" class="top_fields">Article Subjects:</label>
             
-            <input type="text" name="ArticleKeywords" id="ArticleKeywords" size="40" /> 
+            <input type="text" name="ArticleKeywords" id="ArticleKeywords" size="40" spellcheck="true"/> 
             <div class="instructions">Type a keyword, then hit Enter.  Surround "multi-word keywords" with quotation marks.</div>
 <!--        <button name="AddKeyword" id="btnFoo">Add</button>-->
         </div>
