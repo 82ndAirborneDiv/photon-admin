@@ -12,7 +12,6 @@
    
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-    <script type='text/javascript' src='js/JavaScriptSpellCheck/include.js' ></script>
     <!-- The real deal -->
     <script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
 
@@ -31,7 +30,6 @@
             
         });
         
-      $Spelling.SpellCheckAsYouType('#JSONBlurb');
         $(function() {
             $( "#IssueDate" ).datepicker();
              $( "#IssueDate" ).datepicker("option", "dateFormat", "yy-mm-dd");
@@ -172,6 +170,19 @@ function showButtonIfFilled()
       
     //  };
   });
+  
+  $("#enableArticleEdit").click(function(){
+      //var JSONArticle = "poo";
+      $("#IssueDate").attr('contenteditable','true');
+      $("#IssueVolume").attr('contenteditable','true');
+      $("#IssueNumber").attr('contenteditable','true');
+      $("#IssueTitle").attr('contenteditable','true');
+      $("#AlreadyKnownInfo").attr('contenteditable','true');
+      $("#AddedInfo").attr('contenteditable','true');
+      $("#Implications").attr('contenteditable','true');
+
+  });
+  
 });
 
 
@@ -188,18 +199,20 @@ function showButtonIfFilled()
 <br>
     <form action="">
 <p><label for="ArticleURL" class="top_fields">Article URL:</label> <input type="text" name="ArticleURL" id="ArticleURL" size="60"/>
-    <button type="button" id="parseArticle">Auto Fetch Article</button>
-    <button type="button" id="clearArticle">Clear Article</button></p>
+</p>
+    <center><button type="button" id="parseArticle">Auto Fetch Article</button>
+    <button type="button" id="clearArticle">Clear Article</button>
+    <button type="button" id="enableArticleEdit">Edit Article Fields</button></center></p>
 
-<p><label for="IssueDate" class="top_fields">Issue Date:</label> <input type="text" name="FirstName" value="" id="IssueDate" size="12"/></p>
-<p><label for="IssueVolume" class="top_fields">Volume Number:</label> <input  type="text" name="LastName" value="" id="IssueVolume" size="12"/></p>
-<p><label for="IssueNumber" class="top_fields">Issue Number:</label> <input type="text" name="IssueNumber" value="" id="IssueNumber" size="12"/></p>
-         <p><label for="IssueTitle" class="top_fields">Article Title:</label> <textarea type="text" name="ArticleTitle" id="IssueTitle" rows="2" cols="70"></textarea></p>
+<p><label for="IssueDate" class="top_fields">Issue Date:</label> <input type="text" name="FirstName" value="" id="IssueDate" size="12" contenteditable="false"/></p>
+<p><label for="IssueVolume" class="top_fields">Volume Number:</label> <input  type="text" name="LastName" value="" id="IssueVolume" size="12" contenteditable="false"/></p>
+<p><label for="IssueNumber" class="top_fields">Issue Number:</label> <input type="text" name="IssueNumber" value="" id="IssueNumber" size="12" contenteditable="false"/></p>
+         <p><label for="IssueTitle" class="top_fields">Article Title:</label> <textarea type="text" name="ArticleTitle" id="IssueTitle" rows="2" cols="70" contenteditable="false"></textarea></p>
        
         <div>
         <p><label for="ArticleKeywords" class="top_fields">Article Subjects:</label>
             
-            <input type="text" name="ArticleKeywords" id="ArticleKeywords" size="40" spellcheck="true"/> 
+            <input type="text" name="ArticleKeywords" id="ArticleKeywords" size="40" spellcheck="true" /> 
             <div class="instructions">Type a keyword, then hit Enter.  Surround "multi-word keywords" with quotation marks.</div>
 <!--        <button name="AddKeyword" id="btnFoo">Add</button>-->
         </div>
@@ -208,12 +221,12 @@ function showButtonIfFilled()
             <div class="bluebox_topics_header">Blue Box Topics</div>
             
             <p><div class="label_above">
-              <label for "AlreadyKnownInfo" class="bluebox_topics"><img src="images/blue_bubble.png" style="padding-right:.4em;" alt="What is already known on this topic?" title="What is already known on this topic?" />What is <strong>already known</strong> on this topic?</label><br/> <textarea type="text" id="AlreadyKnownInfo" rows="4" cols="70" ></textarea></div></p>
+              <label for "AlreadyKnownInfo" class="bluebox_topics"><img src="images/blue_bubble.png" style="padding-right:.4em;" alt="What is already known on this topic?" title="What is already known on this topic?" />What is <strong>already known</strong> on this topic?</label><br/> <textarea type="text" id="AlreadyKnownInfo" rows="4" cols="70" contenteditable="false"></textarea></div></p>
               
-            <p><div class="label_above"><label for "AddedInfo" class="bluebox_topics"><img src="images/orange_bubble.png" style="padding-right:.4em;" alt="What is added by this report?" title="What is added by this report?" />What is <strong>added</strong> by this report?</label><br/> <textarea type="text" id="AddedInfo" rows="4" cols="70"></textarea></div></p>
+            <p><div class="label_above"><label for "AddedInfo" class="bluebox_topics"><img src="images/orange_bubble.png" style="padding-right:.4em;" alt="What is added by this report?" title="What is added by this report?" />What is <strong>added</strong> by this report?</label><br/> <textarea type="text" id="AddedInfo" rows="4" cols="70" contenteditable="false"></textarea></div></p>
             
              <p><div class="label_above"><label for "Implications" class="bluebox_topics"><img src="images/green_bubble.png" style="padding-right:.4em;" alt="What are the implications for public health practice?" title="What are the implications for public health practice?"/>What are the <strong>implications for public health practice</strong>?</label><br/> <textarea type="text" 
-              id="Implications" rows="4" cols="70" ></textarea></div></p>
+              id="Implications" rows="4" cols="70" contenteditable="false"></textarea></div></p>
         </div>
 
 </form>
