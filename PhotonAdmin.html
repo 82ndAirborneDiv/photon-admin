@@ -10,6 +10,7 @@
     <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
     <link href="css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
    
+   <script type='text/javascript' src='http://edemo.phiresearchlab.org/JavaScriptSpellCheck/include.js' ></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
     <!-- The real deal -->
@@ -216,6 +217,8 @@ function showButtonIfFilled()
             <div class="instructions">Type a keyword, then hit Enter.  Surround "multi-word keywords" with quotation marks.</div>
 <!--        <button name="AddKeyword" id="btnFoo">Add</button>-->
         </div>
+        <button type="button" id="checkKeywordSpelling" onclick="$Spelling.SpellCheckInWindow('ArticleKeywords')">Check Keyword Spelling</button>
+        
 
 <div id="bluebox">
             <div class="bluebox_topics_header">Blue Box Topics</div>
