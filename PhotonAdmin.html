@@ -217,7 +217,6 @@ function showButtonIfFilled()
             <div class="instructions">Type a keyword, then hit Enter.  Surround "multi-word keywords" with quotation marks.</div>
 <!--        <button name="AddKeyword" id="btnFoo">Add</button>-->
         </div>
-        <button type="button" id="checkKeywordSpelling" onclick="$Spelling.SpellCheckInWindow('ArticleKeywords')">Check Keyword Spelling</button>
         
 
 <div id="bluebox">
@@ -234,7 +233,7 @@ function showButtonIfFilled()
 
 </form>
 <div id="serialize_button">
-<button id="serializeButton">Serialize Form Values</button></div>
+<button id="serializeButton" onclick="$Spelling.SpellCheckInWindow('ArticleKeywords')">Serialize Form Values</button></div>
 <div style="clear:both;"></div>
 
 <p><div class="json"><label for "JSONBlurb" class="top_fields">JSON Blurb:</label> <textarea type="text" name="JSONBlurb" id="JSONBlurb" rows="7" cols="73" spellcheck="true"></textarea> </div><br/>
