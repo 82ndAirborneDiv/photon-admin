@@ -68,6 +68,32 @@
                           $("#IssueDate").val($html.filter("meta[name=\"Date\"]").attr("content"));
                           $("#IssueVolume").val($html.filter("meta[name=\"Volume\"]").attr("content"));
                           $("#IssueNumber").val($html.filter("meta[name=\"Issue\"]").attr("content"));
+                          if($("#IssueVolume").val()== "")
+                          {
+                              //article in post 2016 format
+                            var dateLine = $html.find(".dateline").text()
+                            var dateTxt = dateLine.split('/')[1]; 
+                            var articleDate = new Date(dateTxt);
+                            var yyyy = articleDate.getFullYear().toString();
+                            var mm = (articleDate.getMonth()+1).toString(); // getMonth() is zero-based
+                            var dd  = articleDate.getDate().toString();
+                            var dateString = yyyy + '-' + (mm[1]?mm:"0"+mm[0]) + '-' + (dd[1]?dd:"0"+dd[0]); // padding
+                            var init = dateLine.indexOf('(');
+                            var fin = dateLine.indexOf(')');
+                            $("#IssueVolume").val($html.filter("meta[name=\"citation_volume\"]").attr("content"));
+                            $("#IssueDate").val(dateString);
+                            $("#IssueNumber").val(dateLine.substr(init+1,fin-init-1));
+                          }
+                        var summaryText = $html.find(".module-typeC").html();
+                        var summaryTextHTML = $.parseHTML(summaryText);
+                        $summaryTextHTML = $(summaryTextHTML);
+                        var firstSummary = $summaryTextHTML.find('p:eq(0)').text();
+                        //console.log(firstSummary + ';;;' +summaryText);
+                        $("#AlreadyKnownInfo").val($summaryTextHTML.find('p:eq(0)').text());
+                         $("#AddedInfo").val($summaryTextHTML.find('p:eq(1)').text());
+                          $("#Implications").val($summaryTextHTML.find('p:eq(2)').text());
+                          if($("#AlreadyKnownInfo").val()== "")
+                          {
                          $("#AlreadyKnownInfo").val($html.find(".Summary-Box-Text:eq(0)").text());
                          $("#AddedInfo").val($html.find(".Summary-Box-Text:eq(1)").text());
                           $("#Implications").val($html.find(".Summary-Box-Text:eq(2)").text());
@@ -77,6 +103,7 @@
                             $("#AddedInfo").val($html.find(".fb-answer:eq(1)").text());
                             $("#Implications").val($html.find(".fb-answer:eq(2)").text());
                           }
+                      }
                           showButtonIfFilled();
                       } else {
                           var errormsg = "Error: could not load the page.";
