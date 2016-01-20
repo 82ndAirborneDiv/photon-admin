@@ -83,6 +83,7 @@
                             $("#IssueVolume").val($html.filter("meta[name=\"citation_volume\"]").attr("content"));
                             $("#IssueDate").val(dateString);
                             $("#IssueNumber").val(dateLine.substr(init+1,fin-init-1));
+                            $("#IssueTitle").val($html.filter("meta[name=\"citation_title\"]").attr("content"));
                           }
                         var summaryText = $html.find(".module-typeC").html();
                         var summaryTextHTML = $.parseHTML(summaryText);
