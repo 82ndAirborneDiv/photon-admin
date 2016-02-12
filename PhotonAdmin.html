@@ -103,6 +103,12 @@
                             $("#AlreadyKnownInfo").val($html.find(".fb-answer:eq(0)").text());
                             $("#AddedInfo").val($html.find(".fb-answer:eq(1)").text());
                             $("#Implications").val($html.find(".fb-answer:eq(2)").text());
+                            if($("#AlreadyKnownInfo").val()== "")
+                            {
+                                $("#AlreadyKnownInfo").val("Summary not available.");
+                                $("#AddedInfo").val("Summary not available.");
+                                $("#Implications").val("Summary not available.");
+                            }
                           }
                       }
                           showButtonIfFilled();
