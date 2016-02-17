@@ -105,9 +105,9 @@
                             $("#Implications").val($html.find(".fb-answer:eq(2)").text());
                             if($("#AlreadyKnownInfo").val()== "")
                             {
-                                $("#AlreadyKnownInfo").val("Summary not available.");
-                                $("#AddedInfo").val("Summary not available.");
-                                $("#Implications").val("Summary not available.");
+                                $("#AlreadyKnownInfo").val("Summary not available.\nView Full Article for more information");
+                                $("#AddedInfo").val("Summary not available.\nView Full Article for more information");
+                                $("#Implications").val("Summary not available.\nView Full Article for more information");
                             }
                           }
                       }
@@ -195,7 +195,8 @@ function showButtonIfFilled()
                     "tags":tagbuilder,
                     "url":$("#ArticleURL").val(),
                     "content-ver":"1",
-                    "schema-ver":"1"};
+                    "schema-ver":"2",
+                    "command":"add"};
       //var JSONArticle = {"issue":issue,
       //                  "articles":[article],
       //                  "ver":1};
