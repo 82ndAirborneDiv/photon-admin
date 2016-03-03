@@ -40,6 +40,7 @@
         $(document).ready(function(){
        
        $("#serialize_button").hide();
+       
 
   $("#parseArticle").click(function(event){
       event.preventDefault(); 
@@ -165,8 +166,13 @@ function showButtonIfFilled()
 
   $("#serializeButton").click(function(){
       //var JSONArticle = "poo";
+      var issueNumber = $("#IssueNumber").val();
       var issue = $("#IssueDate").val() + " / Vol. " + $("#IssueVolume").val()
-        + " / No. "+  $("#IssueNumber").val();
+        + " / No. "+  issueNumber;
+        if (issueNumber == null || issueNumber == "" )
+        {
+            alert("There is no issue number.  Please provide one even if this is an Early Release.");
+        }
 
       var tagstring = $("#ArticleKeywords").val();
       var tagarray = [];
@@ -195,7 +201,7 @@ function showButtonIfFilled()
                     "tags":tagbuilder,
                     "url":$("#ArticleURL").val(),
                     "content-ver":"1",
-                    "schema-ver":"2",
+                    "schema-ver":"1",
                     "command":"add",};
       //var JSONArticle = {"issue":issue,
       //                  "articles":[article],
