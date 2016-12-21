@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="https://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <title>Photon Admin JSON Generator</title>
 
 
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
     <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
     <link href="css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css">
    
    <script type='text/javascript' src='JavaScriptSpellCheck/include.js' ></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
     <!-- The real deal -->
     <script src="js/tag-it.js" type="text/javascript" charset="utf-8"></script>
@@ -50,10 +50,10 @@
        var originSource = $('input[name=whatOrigin]:checked').val()
 
       if (article_url.length > 0){        
-          var workaroundurl = 'http://whateverorigin.org/get?url=' + encodeURIComponent(article_url) + '&callback=?'
+          var workaroundurl = 'https://whateverorigin.org/get?url=' + encodeURIComponent(article_url) + '&callback=?'
           if (originSource == 'edemo')
           {
-            workaroundurl = 'http://edemo.phiresearchlab.org/whatorigin/get?url=' + encodeURIComponent(article_url) + '&callback=?'
+            workaroundurl = 'https://edemo.phiresearchlab.org/whatorigin/get?url=' + encodeURIComponent(article_url) + '&callback=?'
           }
          // console.log(article_url);
           $.getJSON(workaroundurl,
@@ -278,11 +278,11 @@ function showButtonIfFilled()
 <div style="clear:both;"></div>
 
 <p><div class="json"><label for "JSONBlurb" class="top_fields">JSON Blurb:</label> <textarea type="text" name="JSONBlurb" id="JSONBlurb" rows="7" cols="73" spellcheck="true"></textarea> </div><br/>
-<div class="serialize_message" id="serialize_message">Please copy (Control+C) and paste the JSON Blob into the <a href="http://toolsadmin.cdc.gov">CDC Content Syndication Service Admin Site</a>.</div>
+<div class="serialize_message" id="serialize_message">Please copy (Control+C) and paste the JSON Blob into the <a href="https://toolsadmin.cdc.gov">CDC Content Syndication Service Admin Site</a>.</div>
 <!--        <button name="AddKeyword" id="btnFoo">Add</button>-->
         </div></p></div>
 
-<!--<div id="subscription"><a href="http://toolsadmin.cdc.gov">CDC Subscription Service</a></div>-->
+<!--<div id="subscription"><a href="https://toolsadmin.cdc.gov">CDC Subscription Service</a></div>-->
 
 <div style="clear:both;"></div>
 
