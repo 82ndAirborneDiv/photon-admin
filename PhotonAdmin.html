@@ -94,11 +94,18 @@
                         $("#AlreadyKnownInfo").val($summaryTextHTML.find('p:eq(0)').text());
                          $("#AddedInfo").val($summaryTextHTML.find('p:eq(1)').text());
                           $("#Implications").val($summaryTextHTML.find('p:eq(2)').text());
-                          if($("#AlreadyKnownInfo").val()== "")
+                          if($("#AlreadyKnownInfo").val()== "What is already known about this topic?")
+                          {
+                            $("#AlreadyKnownInfo").val($summaryTextHTML.find('p:eq(1)').text());
+                         $("#AddedInfo").val($summaryTextHTML.find('p:eq(3)').text());
+                          $("#Implications").val($summaryTextHTML.find('p:eq(5)').text());
+                          }
+                          else if($("#AlreadyKnownInfo").val()== "")
                           {
                          $("#AlreadyKnownInfo").val($html.find(".Summary-Box-Text:eq(0)").text());
                          $("#AddedInfo").val($html.find(".Summary-Box-Text:eq(1)").text());
                           $("#Implications").val($html.find(".Summary-Box-Text:eq(2)").text());
+                          
                           if($("#AlreadyKnownInfo").val()== "")
                           {
                             $("#AlreadyKnownInfo").val($html.find(".fb-answer:eq(0)").text());
