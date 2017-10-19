@@ -145,6 +145,7 @@ function showButtonIfFilled()
     $("#serialize_button").hide();
 
 }
+
   $("#AlreadyKnownInfo").on('input',function(){
     showButtonIfFilled();
   });
@@ -170,7 +171,10 @@ function showButtonIfFilled()
   }   );
 
 
-
+  function dequote (quotable)
+  {
+    return quotable.replace(/[\u201C\u201D]/g, "\"").replace(/[\u2018\u2019]/g, "'");
+  }
   $("#serializeButton").click(function(){
       //var JSONArticle = "poo";
       var issueNumber = $("#IssueNumber").val();
@@ -196,15 +200,17 @@ function showButtonIfFilled()
           counter++;
       }
       }
-      var tags = JSON.stringify(tagbuilder)
+      var tags = JSON.stringify(tagbuilder);
+      //var title = dequote($("#IssueTitle").val());
+      //var strTitle = title.replace(/"/g, "\\\"");
      var JSONArticle = {
                  "issue-date":$("#IssueDate").val(),
                    "issue-vol":$("#IssueVolume").val(),
                     "issue-no":$("#IssueNumber").val(),
-                    "title":$("#IssueTitle").val(),
-                    "already_known":$("#AlreadyKnownInfo").val(),
-                    "added_by_report":$("#AddedInfo").val(),
-                     "implications":$("#Implications").val(),
+                    "title":dequote($("#IssueTitle").val()),
+                    "already_known":dequote($("#AlreadyKnownInfo").val()),
+                    "added_by_report":dequote($("#AddedInfo").val()),
+                     "implications":dequote($("#Implications").val()),
                     "tags":tagbuilder,
                     "url":$("#ArticleURL").val(),
                     "content-ver":"1",
@@ -295,7 +301,7 @@ function showButtonIfFilled()
 
 
 <br/>
-<br><br>Article Parser: <input type="radio" name="whatOrigin" value="whatorigin" checked/>Whatever Origin <input type="radio" name="whatOrigin" value="edemo"/>EDemo.
+<br><br>Article Parser: <input type="radio" name="whatOrigin" value="edemo" checked/>EDemo. <input type="radio" name="whatOrigin" value="whatorigin" />Whatever Origin.
 </body>
 </html>
 
